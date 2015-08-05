@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test form validator</title>
+    </head>
+    <body>
+        <form method="post" action="#" name="register" data-form="register" data-submit="rvalidate">
+            <label>Pseudo : </label>
+            <input type="text" id="rpseudo" name="rpseudo" data-required=true data-min="3" data-max="8"/>
+            <label>Mail : </label>
+            <input type="email" id="rmail" class="rmail" data-required=false />
+            <label>Mail2 : </label>
+            <input type="email" id="rmail2" class="rmail" />
+            <label>Mot de passe : </label>
+            <input type="password" id="rpasswd" name="rpasswd" data-required=true data-min="6" />
+            <label>Confirmation : </label>
+            <input type="password" id="rconf" name="rconf" data-confirmed="rpasswd" />
+            <input type="submit" id="rvalidate" name="rvalidate" value="Inscription" />
+        </form>
+        <p>--------------------------------------------------------------</p>
+        <form method="post" action="#" name="login" data-form="connect">
+            <label>Mail : </label>
+            <input type="email" id="lmail" name="lmail" />
+            <label>Mot de passe : </label>
+            <input type="password" id="lpasswd" name="lpasswd" />
+            <input type="submit" id="lvalidate" name="lvalidate" value="login" />
+        </form>
+        <script type="text/javascript" src="FormValidator.js"></script>
+    </body>
+</html>
+
+<!--
+
+data-form : nom du formulaire
+data-submit: le nom du bouton submit pour ajouter event dessus
+data-required: savoir si il faut vérifier le champs ou non
+data-min: longueur mini d'une chaine
+data-max: longueur max d'une chaine
+data-confirmed: true si 2 chaines sont similaire, false sinon
+
+-->
