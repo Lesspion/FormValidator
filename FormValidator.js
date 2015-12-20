@@ -12,10 +12,13 @@
                     stop(e, "A field is missing");
                 }
                 if (form[i].dataset.max) {
-                    form[i].value.length <= form[i].dataset.max ? '' : (form[i].dataset.required == "true" ? stop(e, 'out of max') : "");
+                    form[i].value.length > form[i].dataset.max ? (form[i].dataset.required == "true" ? stop(e, 'out of max') : "") : "";
                 }
                 if (form[i].dataset.min) {
                     form[i].value.length < form[i].dataset.min ? (form[i].dataset.required == "true" ? stop(e, 'out of min') : "") : "";
+                }
+                if (form[i].dataset.confirm) {
+                    form[i].value !== form.querySelector('[name=' + form[i].dataset.confirm + ']').value ? stop(e, "different value") : "";
                 }
             }
         });
