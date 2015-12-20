@@ -23,5 +23,7 @@
             }
         });
     };
-    Forms("register");
+    for (var i = 0; i < document.querySelectorAll('form').length; i++) {
+        Forms(document.querySelectorAll('form')[i].dataset.name);
+    }
 }).call(this);
